@@ -1,5 +1,5 @@
-import { useEffect } from "react"
-import WorkoutDetails from "../components/WorkoutDetails";
+// import { useEffect } from "react"
+// import WorkoutDetails from "../components/WorkoutDetails";
 import { motion } from "framer-motion";
 
 

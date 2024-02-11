@@ -25,7 +25,7 @@ const Timer: React.FC<TimerProps> = ( {onTimerComplete, onSetComplete, isComplet
 
 
   const navigate = useNavigate();
-  const { user, logout } = UserAuth();
+  const { logout } = UserAuth();
 
   const handleLogout = async () => {
       try {

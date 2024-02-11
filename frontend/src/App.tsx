@@ -7,6 +7,7 @@ import { AuthContextProvider } from "./context/AuthContext"
 import Exercise from "./pages/Exercise"
 import ExerciseComponent from "./pages/ExerciseComponent"
 
+
 function App() {
 
   return (

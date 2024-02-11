@@ -10,22 +10,21 @@ import { motion } from 'framer-motion'
 const Signin = () => {
     const [email, setEmail] = useState<string | null>('')
     const [password, setPassword] = useState<string | null>('')
-    const [error, setError] = useState<string | null>('')
     const navigate = useNavigate();
     const { signIn } = UserAuth();
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        setError('');
+        
         try {
             await signIn(email, password);
             navigate('/exercise')
         } catch (error: unknown) {
             if(error instanceof FirebaseError){
-                setError(error.message);
+                
                 console.log(error.code, error.message)
             } else {
-                setError('An unexpected Error occured')
+                
                 console.log(error)
             }
         }

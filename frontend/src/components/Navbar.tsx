@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import { useState } from "react";
-import WorkoutForm from "./WorkoutForm";
+// import WorkoutForm from "./WorkoutForm";
 
 const Navbar = () => {
   const [isMenuToggled, setIsMenuToggled] = useState<boolean>(false);
@@ -24,7 +24,7 @@ const Navbar = () => {
         <div className='fixed right-0 bottom-0 z-[40] h-full w-[150px] bg-primary-300'>
             <button className='absolute right-0 pr-6 pt-6'
             onClick={()=> setIsMenuToggled(!isMenuToggled)}> <XMarkIcon className='h-5 w-5 text-black'/> </button>
-            <WorkoutForm /> 
+            {/* <WorkoutForm />  */}
         </div>
       )}
      </div>

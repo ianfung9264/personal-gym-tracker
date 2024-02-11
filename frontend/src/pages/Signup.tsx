@@ -7,22 +7,21 @@ const Signup = () => {
 
     const [email, setEmail] = useState<string | null>(null)
     const [password, setPassword] = useState<string | null>(null)
-    const [error, setError] = useState<string | null>(null)
+    
     const { createUser } = UserAuth();
     const navigate = useNavigate();
     
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        setError('');
+        
         try {
             await createUser(email, password);
             navigate('/account');
         } catch (error: unknown) {
             if(error instanceof FirebaseError){
-                setError(error.message);
+                
                 console.log(error.code, error.message)
             } else {
-                setError('An unexpected Error occured')
                 console.log(error)
             }
         }

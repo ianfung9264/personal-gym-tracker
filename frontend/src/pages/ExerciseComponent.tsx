@@ -11,16 +11,14 @@ type Workout = {
   reps: number;  
 };
 
-type ExerciseComponentProps = {
-    typeOfExerciseToShow: 'push' | 'pull' 
-}
 
-const ExerciseComponent: React.FC<ExerciseComponentProps> = ({  }) => {
+
+const ExerciseComponent: React.FC = ({  }) => {
 
     let { state } = useLocation();
     const [isVisible, setIsVisible] = useState(false);
     const [isCompleted, setIsCompleted] = useState(false);
-    const [timer, setTimer] = useState(0);
+    
     const { user } = UserAuth();
     const [firebaseUID, setFirebaseUID] = useState('');
     const [workouts, setWorkouts] = useState<Workout[]>([]);    
@@ -35,7 +33,7 @@ const ExerciseComponent: React.FC<ExerciseComponentProps> = ({  }) => {
         // Set the firebaseUID state with the user's UID
         if (firebaseUID) { // Check if firebaseUID is set
             try {
-            const response = await fetch(`http://localhost:4000/api/workouts?firebaseUID=${firebaseUID}`); // Replace PORT with your actual port number
+                const response = await fetch(`https://personal-gym-tracker-backend.onrender.com/api/workouts?firebaseUID=${firebaseUID}`) // Replace PORT with your actual port number
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }

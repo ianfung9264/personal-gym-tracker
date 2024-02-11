@@ -30,13 +30,15 @@ const Exercise = () => {
         // Set the firebaseUID state with the user's UID
       if (firebaseUID) { // Check if firebaseUID is set
         try {
-          const response = await fetch(`http://localhost:4000/api/workouts?firebaseUID=${firebaseUID}`); // Replace PORT with your actual port number
+            const response = await fetch(`https://personal-gym-tracker-backend.onrender.com/api/workouts?firebaseUID=${firebaseUID}`)
+         
           if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
           }
           const data = await response.json();
           setWorkouts(data); // Set the workouts state with the fetched data
         } catch (error) {
+            setError("Error fetching data: " + error);
           console.error("Error fetching data: ", error);
           // Handle errors here
         }
@@ -64,7 +66,7 @@ const Exercise = () => {
         }
 
         try {
-            const response = await fetch(`http://localhost:4000/api/workouts/`,{
+            const response = await fetch(`https://personal-gym-tracker-backend.onrender.com/api/workouts`,{
                 method:'POST',
                 headers: {
                     'Content-Type': 'application/json'
